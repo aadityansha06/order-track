@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hire Aadityansha for custom portfolio websites, e-commerce solutions, chatbot integration, Firebase development, and more. Get personalized and professional web development services for your business.">
+    <meta name="keywords" content="portfolio website, e-commerce development, chatbot integration, firebase development, web development, custom websites, blog website, hire Aadityansha, dynamic websites, static websites, web solutions">
+    <meta name="author" content="Aadityansha">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Hire Aadityansha - Professional Web Development Services">
+    <meta property="og:description" content="Get professional portfolio websites, e-commerce solutions, chatbots, and more with Aadityansha's expert web development services.">
+    <link rel="icon" type="image/png" href="pic/head.png">
+    <meta property="og:url" content="https://www.aadityansha06.github.io/.com">
+    <meta property="og:type" content="website">
+    <title>Hire Aadityansha - Web Development Services | Portfolio, E-commerce, Chatbots</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+   <style>
+    /* Basic Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    :root{
+    --main-color: rgba(255,0,0,0.9);
+}
+html {
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background-color: red;
+    opacity: 0.4;
+    color: white; /* optional: to make text readable */
+  }
+  
+  ::-moz-selection { /* For Firefox */
+    background: red;
+    opacity: 0.4;
+    color: white;
+  }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #181818;
+        color: #ddd;
+        line-height: 1.6;
+        padding: 20px;
+    }
+    /* Added to Cart Style */
+.add-to-cart.added {
+    border:1px solid green;
+    background-color: #28a745; /* Green background */
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.7); /* Green glow effect */
+    color: white;
+}
+
+.add-to-cart.added:hover {
+    background-color: #218838; /* Darker green when hovered */
+    box-shadow: 0 0 20px rgba(40, 167, 69, 0.9); /* Stronger green glow effect */
+}
+
+
+    /* Main Section */
+    .hire-me {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 40px;
+        color: rgba(255, 0, 0, 0.9);
+    }
+    #preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Loader container */
+.cardloder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* "Loading" text */
+.loader p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4b4b4b;
+    margin-left:2rem; /* Adjust spacing */
+    display: inline-block;
+    line-height: 40px; /* Match words' height */
+}
+
+/* Animated words */
+.words {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 140px; /* Increased for better spacing */
+    overflow: hidden;
+    position: relative;
+}
+
+/* Individual words */
+.word {
+    color: rgba(255, 0, 0, 0.9);
+    font-size: 1.5rem;
+    font-weight: 500;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center; /* Center align */
+    opacity: 0;
+    transform: translateY(100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Icon adjustments */
+.word i {
+    margin-left: 8px; /* Fine-tuned spacing */
+    font-size: 1.5rem; /* Adjusted to match text */
+}
+
+/* Animation */
+@keyframes moveUp {
+    0% { opacity: 0; transform: translateY(100%); }
+    5% { opacity: 1; transform: translateY(0); }
+    25% { opacity: 1; transform: translateY(0); }
+    30% { opacity: 0; transform: translateY(-100%); }
+    100% { opacity: 0; transform: translateY(-100%); }
+}
+
+/* Apply animation */
+.word {
+    animation: moveUp 2s infinite ease-in-out;
+}
+
+/* Stagger animation */
+.word:nth-child(1) { animation-delay: 0s; }
+.word:nth-child(2) { animation-delay: 0.4s; }
+.word:nth-child(3) { animation-delay: 0.8s; }
+.word:nth-child(4) { animation-delay: 1.2s; }
+.word:nth-child(5) { animation-delay: 1.6s; }
+
+
+        .card {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+    /* Card Container */
+    .cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+    }
+
+    .card {
+       
+        border-radius: 10px;
+        width: 300px;
+        
+        padding: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+        color: #fff;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+    }
+
+    .card h2 {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .card span {
+        font-size: 18px;
+        font-weight: bold;
+        color: rgba(255, 0, 0, 0.9);
+    }
+
+    .add-to-cart {
+        background-color: transparent;
+        color: white;
+        border: 1px solid rgba(255, 0, 0, 0.7);
+        padding: 12px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s ease;
+    }
+
+    /* Hover Effect */
+    .add-to-cart::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 300%;
+        height: 300%;
+        background-color: rgba(255, 0, 0, 0.2);
+        transition: all 0.5s ease;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+
+    .add-to-cart:hover::before {
+        width: 0;
+        height: 0;
+        background-color: rgba(255, 0, 0, 0.2);
+        opacity: 1;
+    }
+
+    .add-to-cart:hover {
+        background-color: rgba(255, 0, 0, 0.9);
+        transform: scale(1.1);
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.9), 0 0 20px rgba(255, 0, 0, 0.7);
+    }
+
+    /* Cart Section */
+    .cart {
+        background-color: #222;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 40px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .cart h2 {
+        text-align: center;
+        font-size: 24px;
+        color: rgba(255, 0, 0, 0.9);
+        margin-bottom: 20px;
+    }
+
+     .cart textarea {
+        
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        background: none;
+     border: none;
+     outline: none;
+     box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+     color: #fff;
+        color: #ddd;
+        font-size: 16px;
+    }
+    .cart input{
+         
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+     background: none;
+     border: none;
+     outline: none;
+  
+    font-size: 16px;
+     border-radius: 9999px;
+     box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+     color: #fff;
+
+    }
+    .cart textarea {
+        height: 150px;
+    }
+
+    .cart input[type="checkbox"] {
+        margin-right: 10px;
+    }
+
+    .cart button {
+        background-color: rgba(255, 0, 0, 0.9);
+        color: white;
+        padding: 15px 20px;
+        border: none;
+        cursor: pointer;
+        margin-left: 40%;
+        border-radius: 5px;
+        font-size: 18px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .cart button:hover {
+        background-color: #ff1a1a;
+        transform: translateY(-2px);
+    }
+    cont {
+ display: flex;
+ align-items: center;
+ transform: scale(1);
+}
+
+input[type="checkbox"] {
+ height: 1.7rem;
+ width: 1.7rem;
+ margin: 5px;
+ display: inline-block;
+ appearance: none;
+ position: relative;
+ background-color:#fff;
+ border-radius: 15%;
+ cursor: pointer;
+ overflow: hidden;
+}
+
+input[type="checkbox"]::after {
+ content: '';
+ display: block;
+ height: 0.9rem;
+ width: .4rem;
+ border-bottom: .31rem solid #a0ffe7;
+ border-right: .31rem solid #a0ffe7;
+ opacity: 0;
+ transform: rotate(45deg) translate(-50%, -50%);
+ position: absolute;
+ top: 45%;
+ left: 21%;
+ transition: .25s ease;
+}
+
+input[type="checkbox"]::before {
+ content: '';
+ display: block;
+ height: 0;
+ width: 0;
+ background-color:rgba(255,0,0,0.9);
+ border-radius: 50%;
+ opacity: .5;
+ transform: translate(-50%, -50%);
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transition: .3s ease;
+}
+
+input[type="checkbox"]:checked::before {
+ height: 130%;
+ width: 130%;
+ opacity: 100%;
+}
+
+input[type="checkbox"]:checked::after {
+ opacity: 100%;
+}
+
+span {
+ font-size: 2rem;
+}
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .cards-container {
+            flex-direction: column;
+            align-items: center;
+        }
+        lable{
+            font-size: 8px;
+        }
+        .card {
+            width: 80%;
+            margin-bottom: 20px;
+        }
+    }
+    
+  .footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 2.5rem 0;
+    background: transparent;
+    opacity: 0.8;
+   /* Slightly increased opacity for a better contrast */
+  }
+  
+  .footer .social {
+    text-align: center;
+    padding-bottom: 1.7rem;
+    color: var(--main-color);
+  }
+  .card .price {
+    display: block;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.card .mrp {
+    text-decoration: line-through;
+    color: #cf0808e8;  /* Grey color for MRP */
+    margin-right: 10px;
+}
+
+.card .discounted-price {
+    color: #ff1900;  /* Red for the discounted price */
+    font-weight: bold;
+    text-shadow:0 0 0.3 #ff0000;
+}
+
+.card .discount-percent {
+    color: #11ae53;  /* Green for the discount percentage */
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+  .footer .social a {
+    font-size: 2.4rem;
+    color: var(--main-color);
+    border: 0.3rem solid var(--main-color);
+    width: 3rem;
+    height: 3rem;
+    line-height: 2.8rem;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 0.67rem;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .footer .social a:hover {
+    transform: scale(1.2) translateY(-10px); /* Smooth scale and move up effect */
+    background-color: var(--main-color); /* You can define this color elsewhere */
+    color: black;
+    box-shadow: 0 0 25px var(--main-color);
+  }
+
+  
+  .footer .list {
+    line-height: 1.6;
+    text-align: center;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+   
+    
+}
+
+.footer .list li {
+    margin-bottom: 1.5rem; /* Space between each list item */
+}
+
+.footer .list a {
+    color: #ffff; /* Default color */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.9rem;
+    font-weight: 700;
+    position: relative; /* Position for the pseudo-element */
+    padding: 0.2rem 0; /* Some padding for the underline effect */
+    transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+.footer .list a::after {
+    content: ''; /* Empty content for the pseudo-element */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%; /* Start with no width */
+    height: 2px; /* Height of the underline */
+    background-color: var(--main-color); /* Red color for the underline */
+    transition: width 0.3s ease; /* Smooth width transition */
+  
+}
+
+.footer .list a:hover {
+    transform: scaleZ(-100);
+    color: var(--main-color); /* Red color on hover */
+}
+
+.footer .list a:hover::after {
+    width: 100%; /* Expand the underline to full width on hover */
+}
+
+.footer .copyright {
+    padding-top: 1.5rem;
+    color: #fff;
+    font-size: 1.02rem;
+    font-weight: 500;
+  text-align: center;
+}
+
+.filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            padding: 20px;
+          
+            border-radius: 10px;
+        }
+        .filters select, .filters button {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .filters select {
+            background: #222;
+            color: white;
+        }
+        .filters button {
+            background: rgba(255, 0, 0, 0.9);
+            color: white;
+            transition: background 0.3s ease-in-out;
+        }
+        .filters button:hover {
+            background: red;
+        }
+        @media (max-width: 600px) {
+            .filters {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+.order-process {
+    width: 60%;
+    margin: auto;
+    padding: 0.5rem;
+    background: rgba(255, 0, 0, 0.08);
+    border-radius: 8px;
+    font-size: 0.8rem;
+    text-align: left;
+}
+
+.step {
+    padding: 6px 0;
+    font-weight: 500;
+}
+
+.cancel-policy {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: red;
+}
+
+/* Responsive adjustments */
+@media (min-width: 600px) {
+    .order-process { max-width: 75%; }
+}
+
+@media (min-width: 1024px) {
+    .order-process { max-width: 600px; }
+}
+
+nav{
+    position: fixed;
+  
+  width: 95vw;
+  margin-left: 0;
+  display: flex;
+ justify-content: right;
+}
+nav i{
+    position: relative;
+ margin-left: 2rem;
+    font-size: 2rem;
+    color: rgba(255, 0, 0, 0.8);
+}
+nav span{
+    position: absolute;
+    font-size: 1.2rem;
+ top: 0;
+ right: 0;
+ width: 1.7rem;
+    height:2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+nav a{
+    color: #fff;
+}
+#scrollTop {
+            position: fixed;
+            bottom: 20px;
+          
+            background-color: red;
+            color: white;
+            border: none;
+          
+            border-radius: 50%;
+            cursor: pointer;
+            height: 2rem;
+            width: 2rem;
+            font-size: 1.7rem;
+           
+            transition: transform 0.3s ease;
+        }
+        #scrollTop:hover {
+            transform: scale(1.2);
+        }
+        @media(max-width:622px){
+        .spam-notice{
+            font-size: 40%;
+            text-align: center;
+
+        }
+    }
+ 
+    
+    @media(max-width:435px){
+        .order-process {
+            width: 100%;
+        }
+        .cart button {
+            margin-top: 5%;
+            margin-left: 30%;
+        }
+        .custom{
+            font-size: 0.7rem;
+        }
+        .cart input[type="checkbox"] {
+            transform: scale(0.5);
+        }
+}
+@media(max-width:360px){
+    .cart button {
+            margin-top: 5%;
+            margin-left: 20%;
+            padding: 3rem auto;
+        }
+}
+</style>
+</head>
+<body>
+   <div id="preloader">
+        
+  
+      <div class="loader">
+        <p>Loading...</p>
+        <div class="words">
+          <span class="word">crafted</span>
+          <span class="word">on</span>
+          <span class="word"><i class='bx bx-laptop'></i></span>
+          <span class="word">with</span>
+          <span class="word">❤️</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+ <nav>
+    <a href="#cart-box">
+    <h2><i class='bx bx-cart'></i></h2>
+    <span id="cart-count">0</span> </a>
+</nav>
+    <section class="hire-me">
+      
+
+        <h1>Hire Me</h1>
+        <a href="track.html" style="color: rgba(255, 0, 0, 0.8); text-align: center;     display: flex
+        ;
+            justify-content: center;">  <i class="fa fa-truck" style="padding-right:0.4rem ;"></i> Track-Order</a>
+       <section class="filters">
+        <select id="category-filter">
+            <option value="all">All Categories</option>
+            <option value="portfolio">Portfolio</option>
+            <option value="blog">Blog</option>
+            <option value="ecommerce">E-Commerce</option>
+            <option value="firebase">Firebase</option>
+            <option value="chat-ai">Chat-AI</option>
+            <option value="other">Other (C/C++ Projects)</option>
+        </select>
+        
+        
+        <select id="pricing-filter">
+            <option value="all">All Pricing Tiers</option>
+            <option value="basic">Basic</option>
+            <option value="advance">Advance</option>
+            <option value="premium">Premium</option>
+        </select>
+        
+        <button id="apply-filters">Apply Filters</button>
+    </section>
+
+    <div class="order-process">
+        <div class="step">📌 Step 1: Place your order with an active social handle.</div>
+        <div class="step">📌 Step 2: confirmation within 24 hours via your email and social handel.</div>
+        <div class="step">📌 Step 3: Get a partial website preview and pay a 35% advance.</div>
+        <div class="step">📌 Step 4: Review the final website and pay the remaining amount.</div>
+        <div class="step">📌 Step 5: ✅ Your website is delivered!</div>
+        
+        <div class="cancel-policy">
+            ⚠️ <b>Order Cancellation:</b> You can cancel within 2 days or before confirmation.
+        </div>
+        
+    </div>
+    
+        <div class="cards-container">
+            <!-- Portfolio Website 1 (Static) -->
+           <!-- Basic Services (No Discount) -->
+            
+<div class="card" data-type="portfolio" data-price="1000" data-tier="basic" data-id="1">
+    <h2>Portfolio Website (Static)</h2>
+    <p>Simple, personal website to showcase your work with static content.</p>
+    <span class="original-price">₹1000</span>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card" data-type="ecommerce" data-tier="basic"data-price="3000" data-id="2">
+    <h2>E-Commerce Website (Basic)</h2>
+    <p>Basic online store with cart and checkout functionality.</p>
+    <span class="original-price">₹3000</span>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card" data-type="blog" data-tier="basic"data-price="1200" data-id="3">
+    <h2>Blog Website (Basic)</h2>
+    <p>Simple blog with post and comment features.</p>
+    <span class="original-price">₹1200</span>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card" data-type="chat-ai"data-tier="basic" data-price="2500" data-id="4">
+    <h2>Chatbot Integration (Basic)</h2>
+    <p>Basic chatbot for FAQs and automated responses.</p>
+    <span class="original-price">₹2500</span>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
+
+
+<div class="card" data-type="portfolio"  data-tier="advance"data-price="5000" data-id="5">
+    <h2>Portfolio Website (Dynamic)</h2>
+    <p>Interactive portfolio with CMS and real-time updates.</p>
+    <span class="price">
+        <span class="mrp">₹12,000</span>
+        <span class="discounted-price">₹5000</span>
+        <span class="discount-percent">58% off</span>
+    </span>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card" data-type="ecommerce" data-tier="advance" data-price="6500" data-id="6">
+    <h2>E-Commerce Website (Advanced)</h2>
+    <p>Online store with payment integration and inventory management.</p>
+    <span class="price">
+        <span class="mrp">₹15,000</span>
+        <span class="discounted-price">₹6500</span>
+        <span class="discount-percent">56% off</span>
+    </span>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card" data-type="blog"  data-tier="advance"data-price="4000" data-id="7">
+    <h2>Blog Website (Advanced)</h2>
+    <p>Blog with custom design, analytics, and social media integration.</p>
+    <span class="price">
+        <span class="mrp">₹10,000</span>
+        <span class="discounted-price">₹4000</span>
+        <span class="discount-percent">60% off</span>
+    </span>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card" data-type="firebase"  data-tier="advance" data-price="6000" data-id="8">
+    <h2>Firebase Integration</h2>
+    <p>Real-time database, authentication, and cloud functions.</p>
+    <span class="price">
+        <span class="mrp">₹14,000</span>
+        <span class="discounted-price">₹6000</span>
+        <span class="discount-percent">57% off</span>
+    </span>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<!-- Premium Services (Discounted MRP between ₹15,000 - ₹30,000) -->
+<div class="card" data-type="portfolio"  data-tier="premium" data-price="8000" data-id="9">
+    <h2>Portfolio Website (Premium)</h2>
+    <p>Premium design with animations and custom integrations.</p>
+    <span class="price">
+        <span class="mrp">₹20,000</span>
+        <span class="discounted-price">₹8000</span>
+        <span class="discount-percent">60% off</span>
+    </span>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card" data-type="ecommerce"data-tier="premium"  data-price="12000" data-id="10">
+    <h2>Enterprise-Level E-Commerce Website</h2>
+    <p>Scalable online store with advanced functionalities.</p>
+    <span class="price">
+        <span class="mrp">₹28,000</span>
+        <span class="discounted-price">₹12,000</span>
+        <span class="discount-percent">57% off</span>
+    </span>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="card" data-type="chat-ai" data-tier="premium" data-price="15000" data-id="11">
+    <h2>AI-Powered Chatbot</h2>
+    <p>Machine learning-based chatbot for intelligent conversations.</p>
+    <span class="price">
+        <span class="mrp">₹30,000</span>
+        <span class="discounted-price">₹15,000</span>
+        <span class="discount-percent">50% off</span>
+    </span>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
+<!-- Basic Services (No Discount) -->
+
+
+<!-- New: Small Chat App using JS & Firebase (Advanced) -->
+<div class="card" data-type="chat-ai" data-tier="advance" data-price="5000" data-id="12">
+    <h2>Chat App (JS & Firebase)</h2>
+    <p>Real-time chat application with authentication and cloud storage.</p>
+    <span class="price">
+        <span class="mrp">₹12,000</span>
+        <span class="discounted-price">₹5000</span>
+        <span class="discount-percent">58% off</span>
+    </span>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<!-- C/C++ Based Projects (Advanced) -->
+<div class="card" data-type="other" data-tier="advance" data-price="6000" data-id="13">
+    <h2>C/C++ Custom Project</h2>
+    <p>Customized C/C++ software for system utilities or algorithms.</p>
+    <span class="price">
+        <span class="mrp">₹14,000</span>
+        <span class="discounted-price">₹6000</span>
+        <span class="discount-percent">57% off</span>
+    </span>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<!-- Firestore-Based Project (Premium) -->
+<div class="card" data-type="firebase" data-tier="premium"  data-price="9000" data-id="14">
+    <h2>Firestore Database Integration</h2>
+    <p>Scalable Firestore database setup for apps or websites.</p>
+    <span class="price">
+        <span class="mrp">₹22,000</span>
+        <span class="discounted-price">₹9000</span>
+        <span class="discount-percent">59% off</span>
+    </span>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<!-- Enterprise-Level AI Chatbot (Premium) -->
+<div class="card" data-type="portfolio" data-tier="premium"  data-price="15000" data-id="15">
+    <h2>3D-model-Portfolio<br>(Ultra-premium)</h2>
+    <p>Portfolio website usig 3d modle along with other features of advance and basics.</p>
+    <span class="price">
+        <span class="mrp">₹30,000</span>
+        <span class="discounted-price">₹15,000</span>
+        <span class="discount-percent">50% off</span>
+    </span>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
+
+           
+  </div>
+
+<!-- Enterprise-Level AI Chatbot (Premium) -->
+
+
+           
+            
+    
+<div class="cart" id="cart-box">
+    <h2><i class='bx bx-cart'></i> Cart</h2>
+
+    <!-- Display Total Price -->
+    <div id="total-price">Total Price: ₹0.00</div>
+
+    <ul id="cart-items"></ul>
+    <form id="order-form">
+        <input type="hidden" name="formType" value="cart">
+
+        <input type="hidden" name="orderDetails" id="order-details">
+        <input type="hidden" name="totalPrice" id="total-price-input">
+
+        <input type="text" id="username" name="name" placeholder="Your Name" required>
+        <input type="email" id="email" name="email" placeholder="Your Email-to recive a copy of order details" required>
+
+        <input type="text" name="social" placeholder="Social Handle-to contact you">
+
+        <textarea name="message" placeholder="Any suggestions or bargaining?"></textarea>
+
+        <label class="custom">
+            Customization Required (if yes, check-box)
+            <input type="checkbox" name="customization" value="yes">
+        </label>
+        <p class="spam-notice"style="text-align: center; background-color: rgba(255,0,0,0.1); color: #dadadada; font-size: 0.8rem">📩 Don't Miss Your Confirmation Email! <br>
+
+         After placing your order, check your inbox for a confirmation email.<br>
+     or check your Spam/Junk folder and mark it as "Not Spam" 
+      to receive updates smoothly.
+ </p>
+        <button type="submit" class="add-to-cart" disabled>Place Order</button>
+    </form>
+</div>
+
+    </section>
+  
+    <footer class="footer">
+        <div class="social">
+            <a href="https://github.com/aadityansha06" target="_blank"><i class='bx bxl-github'></i></a>
+            <a href="https://www.linkedin.com/in/aadityansha-verma-a4a35a213/" target="_blank"><i class='bx bxl-linkedin-square'></i></a>
+            <a href="https://t.me/aadityansha" target="_blank"><i class='bx bxl-telegram'></i></a>
+            <a href="mailto: pkumariverma42@gmail.com" target="_blank"><i class='bx bxs-envelope'></i></a>
+
+        </div>
+        <ul class="list">
+            
+            <li>
+                <a href="#" id="faq-link">FAQs</a>
+                            
+            </li>
+            <li>
+                
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="blog.html" target="_blank">BLOGS</a>
+            </li>
+
+            <li>
+                <a href="donate.html" target="_blank">Donate</a>
+            </li>
+           
+            
+
+        </ul>
+
+
+    <p class="copyright">
+        AADITYANSHA VERMA | Copyright &#169; 2025-26 | All Rights Reserved 
+    </p>
+
+    </footer>
+    <button id="scrollTop" onclick="scrollToTop()">
+        <i class='bx bx-chevron-up'></i>
+    </button>
+<script src="hire.js"></script>
+   
+
+
+</body>
+</html>
